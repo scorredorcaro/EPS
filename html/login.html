@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SaludMass EPS - Acceso al Portal</title>
+    <link rel="icon" type="image/png" href="../img/logo.png">
+    <link rel="stylesheet" href="../css/login.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="container">
+        <!-- Top Brand Header -->
+        <div class="brand-header">
+            <div class="brand-logo">
+                <h1> 🧬 SaludMass EPS</h1>
+            </div>
+            <p class="brand-subtitle">Portal de Afiliados y Autogestión</p>
+        </div>
+
+        <!-- Navigation Tabs -->
+        <div class="form-tabs">
+            <button class="tab-btn active" onclick="switchTab('login')">Iniciar Sesión</button>
+            <button class="tab-btn" onclick="switchTab('register')">Registrarse</button>
+        </div>
+
+        <div class="form-content">
+            <!-- Messages alert container -->
+            <div id="alert-box" class="alert">
+                <i id="alert-icon" class="fa-solid"></i>
+                <span id="alert-message"></span>
+            </div>
+
+            <!-- LOGIN FORM -->
+            <div id="login-panel" class="form-panel active">
+                <form id="login-form" onsubmit="handleLogin(event)">
+                    <div class="input-group">
+                        <label for="login-email">Correo Electrónico</label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-envelope"></i>
+                            <input type="email" id="login-email" placeholder="nombre@ejemplo.com" required>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="login-password">Contraseña</label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-lock"></i>
+                            <input type="password" id="login-password" placeholder="••••••••" required>
+                            <i class="fa-solid fa-eye toggle-password" onclick="togglePasswordVisibility('login-password')"></i>
+                        </div>
+                    </div>
+
+                    <div class="options-row">
+                        <label class="remember-me">
+                            <input type="checkbox" id="remember"> Recordar mi sesión
+                        </label>
+                        <a href="#" class="forgot-pass" onclick="showAlert('Funcionalidad en desarrollo. Por favor contacta a soporte.', 'success')">¿Olvidaste tu contraseña?</a>
+                    </div>
+
+                    <button type="submit" class="btn-submit">
+                        <span>Ingresar al Portal</span>
+                        <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                    </button>
+                </form>
+                <div class="form-footer">
+                    ¿No tienes una cuenta activa? <a href="#" onclick="switchTab('register')">Regístrate aquí</a>
+                </div>
+            </div>
+
+            <!-- REGISTER FORM -->
+            <div id="register-panel" class="form-panel">
+                <form id="register-form" onsubmit="handleRegister(event)">
+                    <div class="input-group">
+                        <label for="reg-name">Nombre Completo</label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-user"></i>
+                            <input type="text" id="reg-name" placeholder="Ej. Sebastián Corredor" required>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="reg-document">Documento de Identidad (C.C.)</label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-id-card"></i>
+                            <input type="text" id="reg-document" placeholder="Número de cédula" required pattern="[0-9]{5,12}" title="Escribe un número de documento válido de 5 a 12 dígitos">
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="reg-email">Correo Electrónico</label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-envelope"></i>
+                            <input type="email" id="reg-email" placeholder="correo@ejemplo.com" required>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="reg-password">Contraseña de Acceso</label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-lock"></i>
+                            <input type="password" id="reg-password" placeholder="Mínimo 6 caracteres" required minlength="6">
+                            <i class="fa-solid fa-eye toggle-password" onclick="togglePasswordVisibility('reg-password')"></i>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-submit">
+                        <span>Crear Mi Cuenta</span>
+                        <i class="fa-solid fa-user-plus"></i>
+                    </button>
+                </form>
+                <div class="form-footer">
+                    ¿Ya tienes una cuenta? <a href="#" onclick="switchTab('login')">Inicia sesión</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../js/login.js" defer></script>
+</body>
+</html>
