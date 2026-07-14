@@ -52,7 +52,9 @@
         }
 
         // POST URL placeholder (will connect to Flask / Render)
-        const BASE_URL = 'https://saludmass-backend.onrender.com/api';
+        //const BASE_URL = 'https://saludmass-backend.onrender.com/api';
+        // Para pruebas locales en tu máquina:
+        const BASE_URL = 'http://127.0.0.1:5000/api';
 
         // Submit Login handler
         async function handleLogin(e) {
