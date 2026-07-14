@@ -15,7 +15,7 @@
         function handleKeyPress(e) {
             if (e.key === 'Enter') sendMessage();
         }
-
+        
         async function sendMessage() {
             const input = document.getElementById('user-input');
             const messageText = input.value.trim();
@@ -26,9 +26,8 @@
             input.value = '';
 
             try {
-                // Conexión dinámica con el backend de Python (Flask)
-                // Coloca tu dirección real de Render aquí:
-const response = await fetch('https://saludmass-backend.onrender.com/api/chat', {
+                // Aquí va tu URL de Render con el endpoint /api/chat al final
+                const response = await fetch('https://saludmass-backend.onrender.com/api/chat', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ message: messageText })
