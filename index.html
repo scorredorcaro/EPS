@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SaludMass EPS - Portal Contigo</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Panel Lateral -->
+    <aside>
+        <div class="logo">🧬 SaludMass EPS</div>
+        <ul class="nav-tabs">
+            <li><button class="nav-btn active" onclick="switchTab('inicio')">Inicio</button></li>
+            <li><button class="nav-btn" onclick="switchTab('datos')">Información Personal</button></li>
+            <li><button class="nav-btn" onclick="switchTab('consultas')">Consultas y Autorizaciones</button></li>
+        </ul>
+    </aside>
+
+    <!-- Espacio de Módulos -->
+    <main>
+        <!-- Módulo de Inicio -->
+        <section id="inicio" class="tab-content active">
+            <h2>Bienvenido a tu Portal de Salud</h2>
+            <div class="card">
+                <h3>Acceso Rápido</h3>
+                <p style="margin-top: 0.5rem; color: #64748b;">Usa nuestro asistente interactivo abajo a la derecha para agendar citas médicas en segundos.</p>
+            </div>
+            <div class="card">
+                <h3>Próximas Citas Médicas</h3>
+                <table id="citas-table">
+                    <thead>
+                        <tr>
+                            <th>Especialidad</th>
+                            <th>Médico</th>
+                            <th>Fecha y Hora</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Medicina General</td>
+                            <td>Dr. Carlos Mendoza</td>
+                            <td>Mañana - 09:30 AM</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Módulo de Información Personal -->
+        <section id="datos" class="tab-content">
+            <h2>Información Personal del Afiliado</h2>
+            <div class="card grid-2">
+                <div class="info-group"><label>Nombre Completo</label><p>Juan Sebastián Gómez</p></div>
+                <div class="info-group"><label>Documento de Identidad</label><p>CC 1.023.456.789</p></div>
+                <div class="info-group"><label>Tipo de Afiliación</label><p>Cotizante - Régimen Contributivo</p></div>
+                <div class="info-group"><label>Estado de Afiliación</label><p style="color: #16a34a; font-weight: bold;">● ACTIVO</p></div>
+                <div class="info-group"><label>Grupo de Enfoque</label><p>Plan de Beneficios en Salud (PBS)</p></div>
+                <div class="info-group"><label>Ciudad Principal</label><p>Bogotá D.C.</p></div>
+            </div>
+        </section>
+
+        <!-- Módulo de Consultas -->
+        <section id="consultas" class="tab-content">
+            <h2>Historial de Órdenes y Autorizaciones</h2>
+            <div class="card">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Descripción del Servicio / Medicamento</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>AUT-9921</td>
+                            <td>Examen Automatizado de Estructura de Soporte Óseo</td>
+                            <td style="color: #16a34a; font-weight: 600;">Autorizado</td>
+                        </tr>
+                        <tr>
+                            <td>MED-0441</td>
+                            <td>Tratamiento Analgésico Modulado (Fórmula Médica)</td>
+                            <td style="color: #2563eb; font-weight: 600;">Entregado</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <!-- --- COMPONENTE CHATBOT --- -->
+    <div id="chatbot-bubble" onclick="toggleChat()">💬</div>
+
+    <div id="chat-window">
+        <div class="chat-header">
+            <span>Asistente SaludMass</span>
+            <button class="close-chat" onclick="toggleChat()">✕</button>
+        </div>
+        <div class="chat-messages" id="chat-box">
+            <div class="msg bot">¡Hola! Bienvenido a **SaludMass EPS**. Soy tu asistente virtual. ¿En qué especialidad deseas agendar tu cita? (Ej: Medicina General, Odontología, Pediatría)</div>
+        </div>
+        <div class="chat-input-area">
+            <input type="text" id="user-input" placeholder="Escribe aquí tu respuesta..." onkeypress="handleKeyPress(event)">
+            <button onclick="sendMessage()">Enviar</button>
+        </div>
+    </div>
+
+    <script src="script.js" defer></script>
+</body>
+</html>
